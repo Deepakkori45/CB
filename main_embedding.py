@@ -15,6 +15,7 @@ from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.chains.question_answering import load_qa_chain
 
 # load_dotenv()
 # OPENAI_API_TYPE = os.environ['OPENAI_API_TYPE']
@@ -67,13 +68,20 @@ class chat_gen():
         )
 
         prompt = PromptTemplate.from_template(template)
-        chain = ConversationalRetrievalChain.from_llm(
-            llm=llm,
+        # chain = ConversationalRetrievalChain.from_llm(
+        #     llm=llm,
+        #     retriever=self.load_doc("GenAI.pdf").as_retriever(),
+        #     #condense_question_prompt=prompt,
+        #     combine_docs_chain_kwargs={'prompt': prompt},
+        #     chain_type="stuff",
+        # )
+        chain = load_qa_chain(llm= llm,
             retriever=self.load_doc("GenAI.pdf").as_retriever(),
             #condense_question_prompt=prompt,
             combine_docs_chain_kwargs={'prompt': prompt},
             chain_type="stuff",
         )
+        # chain = load_qa_chain(llm, chain_type="stuff", prompt=prompt)
         return chain
 
     def ask_pdf(self,query):
