@@ -62,7 +62,7 @@ class chat_gen():
         prompt = PromptTemplate.from_template(template)
         chain = ConversationalRetrievalChain.from_llm(
             llm=llm,
-            retriever=self.load_doc("GenAI.pdf").as_retriever(),
+            retriever=self.load_doc("https://github.com/Deepakkori45/CB/blob/main/GenAI.pdf").as_retriever(),
             #condense_question_prompt=prompt,
             combine_docs_chain_kwargs={'prompt': prompt},
             chain_type="stuff",
