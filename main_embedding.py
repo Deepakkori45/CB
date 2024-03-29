@@ -13,11 +13,11 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.conversation.memory import ConversationBufferMemory
 
 load_dotenv()
-OPENAI_API_TYPE = os.environ['OPENAI_API_TYPE']
-OPENAI_API_BASE = os.environ['OPENAI_API_BASE']
-OPENAI_API_VERSION = os.environ['OPENAI_API_VERSION']
+# OPENAI_API_TYPE = os.environ['OPENAI_API_TYPE']
+# OPENAI_API_BASE = os.environ['OPENAI_API_BASE']
+# OPENAI_API_VERSION = os.environ['OPENAI_API_VERSION']
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-DEPLOYEMENT_NAME = os.environ['DEPLOYEMENT_NAME']
+# DEPLOYEMENT_NAME = os.environ['DEPLOYEMENT_NAME']
 
 class chat_gen():
     def __init__(self):
@@ -62,7 +62,7 @@ class chat_gen():
         prompt = PromptTemplate.from_template(template)
         chain = ConversationalRetrievalChain.from_llm(
             llm=llm,
-            retriever=self.load_doc("https://github.com/Deepakkori45/CB/blob/main/GenAI.pdf").as_retriever(),
+            retriever=self.load_doc("https://raw.githubusercontent.com/Deepakkori45/CB/main/GenAI.pdf").as_retriever(),
             #condense_question_prompt=prompt,
             combine_docs_chain_kwargs={'prompt': prompt},
             chain_type="stuff",
