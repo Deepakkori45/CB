@@ -10,3 +10,4 @@ pypdf
 tiktoken
 sentence-transformers
 faiss-cpu
+langchain_google_genai
