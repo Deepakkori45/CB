@@ -17,7 +17,7 @@ load_dotenv()
 # OPENAI_API_BASE = os.environ['OPENAI_API_BASE']
 # OPENAI_API_VERSION = os.environ['OPENAI_API_VERSION']
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-# DEPLOYEMENT_NAME = os.environ['DEPLOYEMENT_NAME']
+DEPLOYEMENT_NAME = os.environ['DEPLOYEMENT_NAME']
 
 class chat_gen():
     def __init__(self):
