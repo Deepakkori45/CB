@@ -14,6 +14,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
+from langchain_google_genai import ChatGoogleGenerativeAI
 
 # load_dotenv()
 # OPENAI_API_TYPE = os.environ['OPENAI_API_TYPE']
@@ -49,9 +50,8 @@ class chat_gen():
 
  
     def load_model(self,):
-        llm = AzureChatOpenAI(model = "gemini-pro",
-                            temperature=0.0,
-                            max_tokens=4000,
+        llm = ChatGoogleGenerativeAI(model = "gemini-pro",
+                            temperature=0.0
                             )
 
         # Define your system instruction
